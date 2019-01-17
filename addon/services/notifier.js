@@ -102,7 +102,7 @@ export default Service.extend({
    * @param {Object} [options] Optional notification options.
    */
   success(message, options) {
-    this.add(assign({
+    return this.add(assign({
       message,
       type: this.get('config.successClass'),
       icon: this.get('config.successIcon'),
@@ -198,6 +198,8 @@ export default Service.extend({
     if (notification.duration > 0) {
       this.scheduleRemoval(notification);
     }
+    
+    return notification
   },
 
   /**
